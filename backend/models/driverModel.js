@@ -10,7 +10,7 @@ const driverSchema = new mongoose.Schema ({
     nicNO: {type:String, required: true},
     vehicleDetails: {type:String, required: true},
     doStart: {type:Date, required: true},
-    mobileNo: {type:Number, required: true},
+    mobileNo: {type:Number},
     profiePicture: {type:String, required: true},
     DOB: {type:Date, required: true},
     postalCode: {type:String, required: true},

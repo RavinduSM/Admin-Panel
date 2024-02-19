@@ -1,8 +1,28 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {getInputarr}  from './Share';
 
 function Table() {
-  const inputarr = getInputarr();
+  // const inputarr = getInputarr();
+
+  const [driver, setDriver] = useState()
+
+  const fetchData = () => {
+    fetch("http://localhost:5000/api/driver")
+      .then(response => {
+        return response.json()
+      })
+      .then(data => {
+        setDriver(data)
+      })
+  }
+
+  useEffect(() => {
+
+    fetchData();
+  }, [])
+
+  console.log(driver);
+
 
 
   
@@ -28,22 +48,22 @@ function Table() {
             <th>Status</th>
             <th>Action</th>
           </tr>
-          {inputarr.map((item, index) => (
+          {driver && driver.driver.map(drivers =>(
             
-          <tr key={index}>
+          <tr key={drivers._id}>
           <td>#</td>
-          <td>Driver ID: {item.driverid}</td>
-          <td>Mail ID: {item.mailid}</td>
+          <td> {drivers.driverID}</td>
           <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>{drivers.firstName}</td>
+          <td>{drivers.surname}</td>
+          <td>{drivers.DOB}</td>
+          <td>{drivers.gender}</td>
+          <td>{drivers.mobileNo}</td>
+          <td>{drivers.mailID}</td>
+          <td>{drivers.nicNO}</td>
+          <td>{drivers.doStart}</td>
+          <td>{drivers.resignedDate}</td>
+          <td>{driver.resignedDate =""? "Active" : "Deactive"}</td>
           {/* Display other fields as needed */}
         </tr>
         ))}
