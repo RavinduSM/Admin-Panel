@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const bookingSchema = new mongoose.Schema(
   {
-    dateOfBooking: { type: Date, required: true },
+    dateOfBooking: { type: String, required: true },
     customerMail: { type: String, required: true },
     postCode: { type: String, required: true },
     Destination: { type: String, required: true },
