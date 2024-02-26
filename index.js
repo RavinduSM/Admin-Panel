@@ -23,7 +23,7 @@ app.use(express.json());
 // Enable cors at the server side.
 
 const corsOption = {
-  origin: ["https://adminpanelfrontend-uxho.onrender.com"],
+  origin: ["http://localhost:3000/"],
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE"],
 };
